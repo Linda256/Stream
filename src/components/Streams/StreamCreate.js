@@ -4,11 +4,15 @@ import {Field, reduxForm} from 'redux-form'
 class StreamCreate extends React.Component{
     renderInput(formProps){
         console.log('formProps',formProps)
+        let errorStyle={};
+        if(formProps.meta.touched===false){
+            errorStyle={display:'none'}
+        }
         return(
             <div className="field">
                 <label>{formProps.label}</label>
                 <input {...formProps.input}/>
-                <div>{formProps.meta.error}</div>
+                <div style={errorStyle}>{formProps.meta.error}</div>
             </div>
             
         )
